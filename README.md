@@ -1,12 +1,12 @@
 # Safety Tracker Django Back End API
 
+## Logo
+
 ## Link to:
 - Front End Github Repo
 - View Site: Back End Repo Link
 - Trello Planning Materials & Excalidraw Wireframes & Lucid ERDs (Planning Materials)
-- Link to Deployed App
-
-## Logo
+- Deployed App
 
 ## Information/Inspiration
 
