@@ -6,7 +6,7 @@ import jwt
 
 User = get_user_model()
 
-# BasicAuthentication has stuff built in like password & email validation
+# BasicAuthentication has built in password & email validation
 
 class JWTAuthentication(BasicAuthentication): # assertain users permissions # requests come through here # assign a permission level # if valid token -> given permission to see secure things
     def authenticate(self, request): # check requets has token and return if so
@@ -25,7 +25,7 @@ class JWTAuthentication(BasicAuthentication): # assertain users permissions # re
 
         # get payload with users id from token & algorithms
         try:
-            # can show https://jwt.io again so they can see the alg and the secret
+            # can show https://jwt.io again so can see the alg and the secret
             # HS256 is default, it will be this unless we specify a different alg when we sign the token
             payload = jwt.decode(token, settings.SECRET_KEY, algorithms=['HS256'])
 
