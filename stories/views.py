@@ -19,4 +19,16 @@ class StoryListView(APIView):
         serialized_stories = StorySerializer(stories, many=True)
         # return the serialized data and a 200 status code
         return Response(serialized_stories.data, status=status.HTTP_200_OK)
+    
+    def post(self, request):
+        request.data["owner"] = request.user.id
+        story_to_add = StorySerializer(data=request.data)
+        try:
+           story_to_add.is_valid()
+           story_to_add.save()
+           return Response(story_to_add.data, status=status.HTTP_201_CREATED)
+        except Exception as e:
+            print("Error")
+            return Response(e.__dict__ if e.__dict__ else str(e), status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+
    
