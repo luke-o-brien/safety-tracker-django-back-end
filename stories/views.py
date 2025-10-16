@@ -8,7 +8,7 @@ from .serializers import StorySerializer
 from rest_framework.permissions import IsAuthenticatedOrReadOnly # IsAuthenticatedOrReadOnly specifies that a view is secure on all methods except get requests
 
 
-# Creating views here
+# Creating views:
 
 class StoryListView(APIView):
     permission_classes = (IsAuthenticatedOrReadOnly, ) # sets the permission levels of the specific view by passing in the rest framework authentication class
