@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'authentication',
     'stories',
+    'authors',
 ]
 
 AUTH_USER_MODEL = 'authentication.User'
