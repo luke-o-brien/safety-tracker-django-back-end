@@ -23,13 +23,13 @@ class RegisterView(APIView):
 class LoginView(APIView):
 
     def post(self, request):
-        # get data from the request
+        # getting data from the request
         email = request.data.get('email')
         password = request.data.get('password')
         try:
-            user_to_login = User.objects.get(email=email) # get user with email
+            user_to_login = User.objects.get(email=email) # getting user with email
         except User.DoesNotExist:
-            raise PermissionDenied(detail='Invalid Credentials') # throw error
+            raise PermissionDenied(detail='Invalid Credentials') # throwing error
         if not user_to_login.check_password(password):
             raise PermissionDenied(detail='Invalid Credentials')
 
