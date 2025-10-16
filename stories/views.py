@@ -74,4 +74,4 @@ class StoryDetailView(APIView):
         story_to_delete.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)   
     
-    
+   # tested all routes in Postman - all successfull (FULL CRUD FOR STORIES) 
