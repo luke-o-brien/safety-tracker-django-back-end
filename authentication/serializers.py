@@ -9,10 +9,10 @@ class UserSerializer(serializers.ModelSerializer): # never converted to json and
     password = serializers.CharField(write_only=True) # write_only=True ensures never sent back in JSON
     password_confirmation = serializers.CharField(write_only=True)
 
-    # validate function is going to:
-    # check our passwords match
-    # hash our passwords
-    # add back to database
+    # This validate function below does the following:
+    # checks if passwords match
+    # hash passwords
+    # adds back to database
     def validate(self, data): # data comes from the request body
         print('DATA',data)
         # remove fields from request body and save to vars
@@ -30,7 +30,7 @@ class UserSerializer(serializers.ModelSerializer): # never converted to json and
             print('VALIDATION ERROR')
             raise ValidationError({ 'password': err.messages })
 
-        # hash the password, reassigning value on dict
+        # hash the password, reassigning value 
         data['password'] = make_password(password)
 
         print('DATA ->', data)
@@ -39,3 +39,5 @@ class UserSerializer(serializers.ModelSerializer): # never converted to json and
     class Meta:
         model = User
         fields = '__all__'
+
+
