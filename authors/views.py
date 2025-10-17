@@ -4,7 +4,7 @@ from rest_framework import status
 from rest_framework.exceptions import NotFound # This provides a default response for a not found
 
 from .models import Author
-from .serializers import AuthorSerializer
+from .serializers.common import AuthorSerializer
 
 
 # Creating views here
