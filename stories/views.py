@@ -4,7 +4,7 @@ from rest_framework import status
 from rest_framework.exceptions import NotFound
 
 from .models import Story
-from .serializers import StorySerializer
+from .serializers.common import StorySerializer
 from rest_framework.permissions import IsAuthenticatedOrReadOnly # IsAuthenticatedOrReadOnly specifies that a view is secure on all methods except get requests
 
 
