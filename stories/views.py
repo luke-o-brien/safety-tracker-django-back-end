@@ -22,7 +22,7 @@ class StoryListView(APIView):
         # return the serialized data and a 200 status code
         return Response(serialized_stories.data, status=status.HTTP_200_OK)
     
-    # Create a story
+    # Create a story with post method
     def post(self, request):
         request.data["owner"] = request.user.id
         story_to_add = StorySerializer(data=request.data)
@@ -52,7 +52,8 @@ class StoryDetailView(APIView):
             return Response(serialized_story.data, status=status.HTTP_200_OK)
         except Story.DoesNotExist:
             raise NotFound(detail="Can't find that story!") # <-- import the NotFound exception from rest_framwork.exceptions
-
+        
+    # Updating story with put method request
     def put(self, request, pk):
         story_to_update = self.get_story(pk=pk)
         if story_to_update.owner != request.user:
@@ -65,6 +66,7 @@ class StoryDetailView(APIView):
 
         return Response(updated_story.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
+    # Deleting story with delete request
     def delete(self, request, pk):
         story_to_delete = self.get_story(pk=pk)
 
