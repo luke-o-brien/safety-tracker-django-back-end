@@ -5,6 +5,7 @@ from rest_framework.exceptions import NotFound
 
 from .models import Story
 from .serializers.common import StorySerializer
+from .serializers.populated import PopulatedStorySerializer
 from rest_framework.permissions import IsAuthenticatedOrReadOnly # IsAuthenticatedOrReadOnly specifies that a view is secure on all methods except get requests
 
 
@@ -48,7 +49,7 @@ class StoryDetailView(APIView):
     def get(self, _request, pk):
         try:
             story = Story.objects.get(pk=pk)
-            serialized_story = StorySerializer(story)
+            serialized_story = PopulatedStorySerializer(story)
             return Response(serialized_story.data, status=status.HTTP_200_OK)
         except Story.DoesNotExist:
             raise NotFound(detail="Can't find that story!") # <-- import the NotFound exception from rest_framwork.exceptions
