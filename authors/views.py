@@ -5,6 +5,7 @@ from rest_framework.exceptions import NotFound # This provides a default respons
 
 from .models import Author
 from .serializers.common import AuthorSerializer
+from .serializers.populated import PopulatedAuthorSerializer
 
 
 # Creating views here
@@ -44,7 +45,7 @@ class AuthorDetailView(APIView):
 
     def get(self, request, pk):
         author = self.get_author(pk=pk)
-        serialized_author = AuthorSerializer(author)
+        serialized_author = PopulatedAuthorSerializer(author)
         return Response(serialized_author.data, status=status.HTTP_200_OK)
 
     def put(self, request, pk):
@@ -65,3 +66,4 @@ class AuthorDetailView(APIView):
     
 
     # CRUD functionality for authors tested via POSTMAN & fully working!
+    
