@@ -7,7 +7,11 @@ class Story(models.Model):
 
     # models.CharField is the data type and means "string"
     title = models.CharField(max_length=80, unique=True)
-    author = models.CharField(max_length=80)
+    author = models.ForeignKey(
+        "authors.Author",
+        related_name = "stories",
+        on_delete = models.CASCADE
+    )
     content = models.TextField()
     owner = models.ForeignKey(
         "authentication.User",
