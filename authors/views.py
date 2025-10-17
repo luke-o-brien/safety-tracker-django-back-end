@@ -64,4 +64,4 @@ class AuthorDetailView(APIView):
 
     
 
-    
+    # CRUD functionality for authors tested via POSTMAN & fully working!
