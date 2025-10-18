@@ -59,6 +59,9 @@ MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
 ]
 
+# This below means you can call your api from anywhere & your backend will let that request through:
+CORS_ALLOW_ALL_ORIGINS = True
+
 ROOT_URLCONF = 'project_safety_tracker.urls'
 
 REST_FRAMEWORK = {
