@@ -8,3 +8,4 @@ class PopulatedStorySerializer(StorySerializer):
     owner = UserSerializer()
     comments = PopulatedCommentSerializer(many=True)
     
+# Populated comments working on Postman
