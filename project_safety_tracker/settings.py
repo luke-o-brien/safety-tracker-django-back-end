@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'authentication',
     'stories',
     'authors',
+    'comments',
 ]
 
 AUTH_USER_MODEL = 'authentication.User'
