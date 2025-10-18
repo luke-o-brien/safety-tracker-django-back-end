@@ -22,6 +22,7 @@ urlpatterns = [
     path('api/auth/', include('authentication.urls')),
     path('api/stories/', include('stories.urls')),
     path('api/authors/', include('authors.urls')),
+    path('comments/', include('comments.urls')),
 ]
 
 
