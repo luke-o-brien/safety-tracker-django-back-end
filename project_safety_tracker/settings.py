@@ -37,12 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'rest_framework',
     'authentication',
     'stories',
     'authors',
     'comments',
-    'corsheaders',
 ]
 
 AUTH_USER_MODEL = 'authentication.User'
