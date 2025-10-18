@@ -4,6 +4,8 @@
 Next up, I will be creating a front end to complete building my first Django API & React Frontend full stack application! Woot woot! <br> **...Currently, in progress...**
 
 ## Logo
+<img width="611" height="572" alt="Screenshot 2025-10-18 at 4 59 50 AM" src="https://github.com/user-attachments/assets/52ff486f-75cb-4e9b-942f-fdda15bad912" />
+
 
 ## Link to:
 - Front End Github Repo
