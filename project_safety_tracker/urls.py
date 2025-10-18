@@ -25,5 +25,5 @@ urlpatterns = [
     path('api/comments/', include('comments.urls')),
 ]
 
-
+# Data Entities thus far are: users, stories, authors, comments, and soon check-ins
 
