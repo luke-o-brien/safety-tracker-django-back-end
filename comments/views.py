@@ -65,3 +65,4 @@ class CommentDetailView(APIView):
         comment_to_delete.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
     
+# tested comments routes via postman & all is working
