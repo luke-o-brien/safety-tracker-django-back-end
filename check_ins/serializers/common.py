@@ -1,8 +1,9 @@
+# We need a serializer to convert python objects into JSON
 from rest_framework import serializers
-from ..models import Book
+from ..models import Check_In
 
-class BookSerializer(serializers.ModelSerializer):
+class Check_InSerializer(serializers.ModelSerializer):
   class Meta:
-    model = Book
+    model = Check_In
+    # This part below converts all fields from json to sql.
     fields = '__all__'
-    
