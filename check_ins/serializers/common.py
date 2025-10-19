@@ -7,3 +7,4 @@ class Check_InSerializer(serializers.ModelSerializer):
     model = Check_In
     # This part below converts all fields from json to sql.
     fields = '__all__'
+
