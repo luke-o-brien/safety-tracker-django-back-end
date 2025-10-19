@@ -23,7 +23,7 @@ urlpatterns = [
     path('api/stories/', include('stories.urls')),
     path('api/authors/', include('authors.urls')),
     path('api/comments/', include('comments.urls')),
-    path('check_ins/', include('check_ins.urls')),
+    path('api/check_ins/', include('check_ins.urls')),
 ]
 
 # Data Entities thus far are: users, stories, authors, comments, and soon check-ins
