@@ -10,6 +10,11 @@ class Check_In(models.Model):
   reaction_level = models.FloatField()
   coping_action = models.CharField(max_length=5000)
   effectiveness = models.FloatField()
+  owner = models.ForeignKey(
+    "authentication.User",
+    related_name="check_ins",
+    on_delete=models.CASCADE
+)
 
 # Alternate Check_In Model I could use as per researching (for future when I want to make it more accurate; however, maybe not use blank=True):
 # Create my Check_In Model
