@@ -24,6 +24,7 @@ Next up, I will be creating a front end to complete building my first Django API
 ## Rough Drafts - screenshots of wireframes & tree set ups
 
 ## Future Enhancements / Next Steps
+- Self Care / Calming Actions / Wellbeing Tips
 
 ## Stretch Goals 🚀
 
