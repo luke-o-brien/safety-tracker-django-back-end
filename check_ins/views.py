@@ -5,7 +5,7 @@ from rest_framework import status # status gives us a list of official/possible 
 from rest_framework.exceptions import NotFound
 
 from .models import Check_In
-# from .serializers.common import Check_InSerializer
+from .serializers.common import Check_InSerializer
 from rest_framework.permissions import IsAuthenticated
 
 
