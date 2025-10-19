@@ -4,14 +4,17 @@ from rest_framework.response import Response # Response gives us a way of sendin
 from rest_framework import status # status gives us a list of official/possible response codes
 
 from .models import Check_In
-from .serializers import Check_InSerializer
+from .serializers.common import Check_InSerializer
+from rest_framework.permissions import IsAuthenticated
 
 
 # Create your views here
 # Building out views.py to return all data eg. ListView
 class Check_InListView(APIView):
-
+  permission_classes = (IsAuthenticated, )
+  # GET request in the BookListView
   def get(self, _request):
+    # Go to the db and get all check_ins
     check_ins = Check_In.objects.all()
     serialized_check_ins = Check_InSerializer(check_ins, many=True)
     return Response(serialized_check_ins.data, status=status.HTTP_200_OK)
