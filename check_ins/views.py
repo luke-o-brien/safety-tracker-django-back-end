@@ -34,4 +34,42 @@ class Check_InListView(APIView):
             # so we'll check it's a dict first, and if it's empty (falsey) then we'll use str() to convert to a string
             return Response(e.__dict__ if e.__dict__ else str(e), status=status.HTTP_422_UNPROCESSABLE_ENTITY)
    
+class Check_InDetailView(APIView):
+    permission_classes = (IsAuthenticated, ) # sets the permission levels of the specific view by passing in the rest framework authentication class
+
+    # custom method to retrieve a check_in from the DB and error if it's not found
+    def get_check_in(self, pk):
+        try:
+            return Check_In.objects.get(pk=pk)
+        except Check_In.DoesNotExist:
+            raise NotFound(detail="Can't find that check_in") # <-- import the NotFound exception from rest_framwork.exceptions
+
+    def get(self, _request, pk):
+        try:
+            check_in = Check_In.objects.get(pk=pk)
+            serialized_check_in = Check_InSerializer(check_in)
+            return Response(serialized_check_in.data, status=status.HTTP_200_OK)
+        except Check_In.DoesNotExist:
+            raise NotFound(detail="Can't find that check_in") # <-- import the NotFound exception from rest_framwork.exceptions
+
+    def put(self, request, pk):
+        check_in_to_update = self.get_check_in(pk=pk)
+        if check_in_to_update.owner != request.user:
+            return Response(status=status.HTTP_401_UNAUTHORIZED)
+
+        updated_check_in = Check_InSerializer(check_in_to_update, data=request.data)
+        if updated_check_in.is_valid():
+            updated_check_in.save()
+            return Response(updated_check_in.data, status=status.HTTP_202_ACCEPTED)
+
+        return Response(updated_check_in.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+
+    def delete(self, request, pk):
+        check_in_to_delete = self.get_check_in(pk=pk)
+
+        if check_in_to_delete.owner != request.user:
+            return Response(status=status.HTTP_401_UNAUTHORIZED)
+
+        check_in_to_delete.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT) 
     
