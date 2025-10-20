@@ -73,3 +73,5 @@ class Check_InDetailView(APIView):
         check_in_to_delete.delete()
         return Response(status=status.HTTP_204_NO_CONTENT) 
     
+
+    # check_ins - full CRUD functionality tested in POSTMAN
