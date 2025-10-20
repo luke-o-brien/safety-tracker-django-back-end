@@ -6,6 +6,7 @@ from rest_framework.exceptions import NotFound
 
 from .models import Check_In
 from .serializers.common import Check_InSerializer
+from .serializers.populated import PopulatedCheck_InSerializer 
 from rest_framework.permissions import IsAuthenticated
 
 
@@ -47,7 +48,7 @@ class Check_InDetailView(APIView):
     def get(self, _request, pk):
         try:
             check_in = Check_In.objects.get(pk=pk)
-            serialized_check_in = Check_InSerializer(check_in)
+            serialized_check_in = PopulatedCheck_InSerializer(check_in)
             return Response(serialized_check_in.data, status=status.HTTP_200_OK)
         except Check_In.DoesNotExist:
             raise NotFound(detail="Can't find that check_in") # <-- import the NotFound exception from rest_framwork.exceptions
