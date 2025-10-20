@@ -76,3 +76,5 @@ class Check_InDetailView(APIView):
     
 
     # check_ins - full CRUD functionality tested in POSTMAN
+    # check_ins addtl - populated serializer added & now full backend is currently working with 5 data entities - for stretch goals, will add more in the future.
+    
