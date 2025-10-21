@@ -48,7 +48,7 @@ class Check_InDetailView(APIView):
     def get(self, _request, pk):
         try:
             check_in = Check_In.objects.get(pk=pk)
-            # now only the user can see their own check_in
+            # now only the user can see their own check_in --important so that journal entries are completely private
             if check_in.owner != _request.user:
                 return Response(status=status.HTTP_401_UNAUTHORIZED)
             serialized_check_in = PopulatedCheck_InSerializer(check_in)
