@@ -27,9 +27,24 @@ class LoginView(APIView):
         # getting data from the request
         email = request.data.get('email')
         password = request.data.get('password')
+
+        # DEBUG PRINTS:
+        print("=== LOGIN DEBUG ===")
+        print(f"Email received: {email}")
+        print(f"Password received: {password}")
+        
+        # CheckING  what users exist
+        all_users = User.objects.all()
+        print(f"Total users in DB: {all_users.count()}")
+        for user in all_users:
+            print(f"User: {user.id} | {user.email} | {user.username}")
+
         try:
             user_to_login = User.objects.get(email=email) # getting user with email
+            print(f"User found: {user_to_login.email}")
+
         except User.DoesNotExist:
+            print("User.DoesNotExist was raised")
             raise PermissionDenied(detail='Invalid Credentials') # throwing error
         if not user_to_login.check_password(password):
             raise PermissionDenied(detail='Invalid Credentials')
