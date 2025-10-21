@@ -2,6 +2,7 @@ from rest_framework.views import APIView # main API controller class
 from rest_framework.response import Response #response class, like res object in express
 from rest_framework import status
 from rest_framework.exceptions import PermissionDenied
+from rest_framework.permissions import IsAuthenticated
 from datetime import datetime, timedelta # creates timestamps in dif formats
 from django.contrib.auth import get_user_model # gets user model we are using
 from django.conf import settings # import our settings for our secret
@@ -42,3 +43,9 @@ class LoginView(APIView):
         )
         return Response({ 'token': token, 'message': f"Welcome back {user_to_login.username}"})
    
+class UserView(APIView):
+    permission_classes = (IsAuthenticated, )
+
+    def get(self, request):
+        serializer = UserSerializer(request.user)
+        return Response(serializer.data) 
