@@ -19,7 +19,7 @@ class StoryListView(APIView):
         # go to the database and get all the stories
         stories = Story.objects.all()
         # translate the stories from the database to a usable form
-        serialized_stories = StorySerializer(stories, many=True)
+        serialized_stories = PopulatedStorySerializer(stories, many=True)
         # return the serialized data and a 200 status code
         return Response(serialized_stories.data, status=status.HTTP_200_OK)
     
