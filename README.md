@@ -3,6 +3,21 @@
 
 Next up, I will be creating a front end to complete building my first Django API & React Frontend full stack application! Woot woot! <br> **...Currently, in progress...**
 
+<hr>
+
+### Encountering errors of deployment with backend - Luke was troubleshooting with me today (10/26) for 1.5 hours. He will be looking over my repo to determine what else needs to be done to deploy. 
+### **Update** 
+- **I needed to delete all the heroku updates that we did to settings.py from my GitHub Repo so that my backend could function again and interact with my frontend for project week. Below is what I had to delete from my repo and local so that things would work again.**
+- **Deleted settings.py deleted static file to the top to reset. And I have taken screenshots of these commits prior to deleting. I have them on my local computer. (See Image Below From GitHub)**
+
+<hr>
+
+<img width="1208" height="651" alt="Deleted Commits From Repo - from deleted static file to the top - 2025-10-26 at 1 13 31 PM" src="https://github.com/user-attachments/assets/d0d35f38-0268-4f85-8dcb-35c27c0fcef3" />
+
+<br>
+
+<hr>
+
 ## Logo
 <img width="611" height="572" alt="Screenshot 2025-10-18 at 4 59 50 AM" src="https://github.com/user-attachments/assets/52ff486f-75cb-4e9b-942f-fdda15bad912" />
 
