@@ -38,7 +38,7 @@ class UserSerializer(serializers.ModelSerializer): # never converted to json and
 
     class Meta:
         model = User
-        fields = ('id', 'email', 'username', 'first_name', 'last_name', 'profile_image', 'password', 'password_confirmation')
+        fields = ('id', 'email', 'username', 'first_name', 'last_name', 'password', 'password_confirmation')
 
 
 
