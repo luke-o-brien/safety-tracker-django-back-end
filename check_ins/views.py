@@ -60,6 +60,10 @@ class Check_InDetailView(APIView):
         check_in_to_update = self.get_check_in(pk=pk)
         if check_in_to_update.owner != request.user:
             return Response(status=status.HTTP_401_UNAUTHORIZED)
+        
+        # removing owner from request data since it should come from request.user
+        request_data = request.data.copy()
+        request_data.pop('owner', None)  # removing owner if exists
 
         updated_check_in = Check_InSerializer(check_in_to_update, data=request.data)
         if updated_check_in.is_valid():
