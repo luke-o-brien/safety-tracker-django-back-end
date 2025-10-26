@@ -65,7 +65,7 @@ class Check_InDetailView(APIView):
         request_data = request.data.copy()
         request_data.pop('owner', None)  # removing owner if exists
 
-        updated_check_in = Check_InSerializer(check_in_to_update, data=request.data)
+        updated_check_in = Check_InSerializer(check_in_to_update, data=request_data)
         if updated_check_in.is_valid():
             updated_check_in.save()
             return Response(updated_check_in.data, status=status.HTTP_202_ACCEPTED)
