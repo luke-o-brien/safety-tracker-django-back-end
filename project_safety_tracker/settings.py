@@ -105,15 +105,6 @@ WSGI_APPLICATION = 'project_safety_tracker.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 
-DATABASES = { # added this to use postgres as the database instead of the default sqlite. do this before running the initial migrations or you will need to do it again
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'safety-tracker-api',
-        'HOST': 'localhost',
-        'PORT': 5432
-    }
-}
-
 if 'ON_HEROKU' in os.environ:
     DATABASES = {
         "default": dj_database_url.config(
