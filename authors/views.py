@@ -16,7 +16,7 @@ class AuthorListView(APIView):
     def get(self, _request):
         # go to the database and get all the authors
         authors = Author.objects.all()
-        serialized_authors = AuthorSerializer(authors, many=True)
+        serialized_authors = PopulatedAuthorSerializer(authors, many=True)
         # return the serialized data and a 200 status code
         return Response(serialized_authors.data, status=status.HTTP_200_OK)
     
