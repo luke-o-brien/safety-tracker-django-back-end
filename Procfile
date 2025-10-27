@@ -1,1 +1,1 @@
-web: gunicorn project_saftey_tracker.wsgi
+web: gunicorn project_safety_tracker.wsgi
