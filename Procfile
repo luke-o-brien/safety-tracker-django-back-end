@@ -1,1 +1,1 @@
-web: gunicorn prject_saftey_tracker.wsgi
+web: gunicorn project_saftey_tracker.wsgi
